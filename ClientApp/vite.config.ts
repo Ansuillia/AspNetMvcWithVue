@@ -1,22 +1,19 @@
 import { fileURLToPath, URL } from 'node:url'
-import Pages from 'vite-plugin-pages'
 
 import { resolve } from 'path'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import basicSsl from '@vitejs/plugin-basic-ssl'
 
 const root = resolve(__dirname)
 const src = resolve(root, 'src')
-const pages = resolve(src, 'pages')
-const outdir = resolve('../wwwroot/app')
+const wwwroot = resolve('../', 'wwwroot')
 
 // https://vitejs.dev/config/
 export default defineConfig({
   root,
-  plugins: [vue(), vueJsx(), Pages()],
+  plugins: [vue(), vueJsx()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
@@ -29,11 +26,17 @@ export default defineConfig({
     },
   },
   build: {
-    manifest: true,
+    manifest: false,
     rollupOptions: {
       input: {
-        home: resolve(pages, 'Home/HomeView.vue'),
+        multistep: resolve(src, 'pages/multistep/main.ts'),
+      },
+      output: {
+        entryFileNames: `[name].js`,
+        assetFileNames: `[name].[ext]`,
       },
     },
+    outDir: resolve(wwwroot, `app/[name]`),
+    assetsDir: resolve(wwwroot, `app/[name]`),
   },
 })

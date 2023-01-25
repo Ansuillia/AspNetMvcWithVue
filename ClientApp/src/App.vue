@@ -1,11 +1,7 @@
 <template>
-  <h1>Olá mundo</h1>
+  <Editor></Editor>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
-
-onMounted(() => {
-  console.log('Teste')
-})
+import Editor from './views/Editor.vue'
 </script>

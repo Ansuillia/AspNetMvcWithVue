@@ -1,0 +1,13 @@
+﻿@using MvcVue.Controllers;
+@model EditorViewModel;
+
+@addTagHelper "*, Microsoft.AspNetCore.SpaServices"
+@{
+    ViewData["Title"] = "Vue Editor";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div id="app">
+  <Editor />
+</div>
+<script type="module" src="http://localhost:3000/src/main.ts"></script>
