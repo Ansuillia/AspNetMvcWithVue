@@ -43,17 +43,17 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 
-if (app.Environment.IsDevelopment())
-{
-  app.MapToVueCliProxy(
-     "{*path}",
-      new SpaOptions { SourcePath = "ClientApp" },
-      npmScript: "dev",
-      regex: " ready in",
-      forceKill: true,
-      port: 3000,
-      wsl: false // Set to true if you are using WSL on windows. For other operating systems it will be ignored
-  );
-}
+//if (app.Environment.IsDevelopment())
+//{
+//  app.MapToVueCliProxy(
+//     "{*path}",
+//      new SpaOptions { SourcePath = "ClientApp" },
+//      npmScript: "build",
+//      regex: "ready in",
+//      forceKill: true,
+//      port: 3000,
+//      wsl: false // Set to true if you are using WSL on windows. For other operating systems it will be ignored
+//  );
+//}
 
 app.Run();

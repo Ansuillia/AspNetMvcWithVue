@@ -6,20 +6,19 @@ namespace MvcVue.Controllers
   {
     public IActionResult Index()
     {
-      var model = new EditorViewModel("Minha mensagem");
+      var model = new EditorViewModel
+      {
+        Message = "Mensagem do Model",
+        Name = "Anderson Martins"
+      };
+
       return View(model);
     }
   }
 
   public class EditorViewModel
   {
-    private string _message;
-
-    public EditorViewModel(string message)
-    {
-      _message = message;
-    }
-
-    public string Message { get { return _message;} }
+    public string? Name { get; set; }
+    public string? Message { get; set; }
   }
 }

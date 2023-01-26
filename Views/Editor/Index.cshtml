@@ -1,13 +1,17 @@
 ﻿@using MvcVue.Controllers;
+@using System.Text.Json;
 @model EditorViewModel;
-
 @addTagHelper "*, Microsoft.AspNetCore.SpaServices"
+
+@{
+    var data = JsonSerializer.Serialize(Model);
+}
+
 @{
     ViewData["Title"] = "Vue Editor";
 }
+
 <h1>@ViewData["Title"]</h1>
 
-<div id="app">
-  <Editor />
-</div>
-<script type="module" src="http://localhost:3000/src/main.ts"></script>
+<div id="multiStep" data-model="@data"></div>
+<script type="module" src="~/app/multistep.js"></script>

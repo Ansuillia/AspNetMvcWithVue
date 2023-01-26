@@ -36,7 +36,7 @@ export default defineConfig({
         assetFileNames: `[name].[ext]`,
       },
     },
-    outDir: resolve(wwwroot, `app/[name]`),
-    assetsDir: resolve(wwwroot, `app/[name]`),
+    outDir: resolve(wwwroot, `app/`),
+    assetsDir: resolve(wwwroot, `app/css/`),
   },
 })
